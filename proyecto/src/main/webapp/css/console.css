@@ -1,0 +1,419 @@
+#header {
+	position: absolute;  
+	height: 55px;
+	top: 0;
+	right: 1px;
+	bottom: auto;
+	left: 1px;
+	background: repeat-x url(../images/headerBar.png);
+}
+
+#logo {
+	position: fixed;  
+	top: 8px;
+	left: 16px;
+	bottom: auto;
+	right: auto;
+}
+
+#searchbutton {
+	position: fixed; /* */
+	top: 38px;
+	left: auto;
+	bottom: auto;
+	right: 6px;
+}
+
+#searchbutton2 {
+	position: fixed; /* */
+	top: 38px;
+	right: auto;
+	bottom: auto;
+	left: 6px;
+}
+
+#leftbar {
+	position: fixed; /* */
+	height: 90%;
+	top: 90px;
+	right: auto;
+	bottom: 0;
+	left: auto;
+	width: 95%;
+	/*display: none; */
+}
+
+#rightbar {
+	position: fixed; 
+	height: auto;
+	top: 118px;
+	/*top: 131px;*/
+	right: auto;
+	bottom: 0;
+	left: 3%;
+	width: 94%;
+	overflow-y:auto;
+}
+
+
+#rightbar2 {
+	position: fixed; /* */
+	height: 90%;
+	top: 118px;
+	right: auto;
+	bottom: 0;
+	left: 30%;
+	width: 94%;
+}
+
+#prueba {
+	/*position: fixed; /* */
+	height: 200;
+	top: 20%;
+	right: auto;
+	bottom: 0;
+	left: 3%;
+	width: 50%;
+}
+
+
+#leftbarmini {
+	position: fixed; /* */
+	height: auto;
+	top: 72px;
+	right: auto;
+	bottom: 0;
+	left: 0;
+	width: 10%;
+}
+
+#leftbarheader {
+	position: fixed; /* */
+	height: auto;
+	top: 57px;
+	right: auto;
+	bottom: 0;
+	left: 0;
+	height: 17px;
+	width: 30%;
+	vertical-align: middle;
+}
+
+#rightbarheader {
+	position: fixed; /* */
+	height: auto;
+	top: 57px;
+	right: auto;
+	bottom: 0;
+	left: 30%;
+	height: 17px;
+	width: 70%;
+	vertical-align: middle;
+}	
+
+#leftheader {
+	background: repeat-x url(../images/buttonBar.jpg);
+	position: relative;
+	right: 1px;
+	text-align: right;
+	height: 15px;
+	padding-right: 5px;
+}
+
+#rightheader {
+	background: repeat-x url(../images/buttonBar.jpg);
+	position: relative;
+	left: 2px;
+	text-align: right;
+	font-size: 9px;
+	height: 15px;
+	padding-right: 18px;
+	padding-top: 3px;
+}
+
+div.panelContainer {
+	padding: 1px 1px 1px 1px;
+}
+
+#panel {
+	border: 1px solid #EEEEEE;
+	background: #F9F9F9;
+	padding: 1px 1px 1px 1px;
+}
+
+#panelheader {
+	background: repeat-x url(../images/topBar.jpg);
+	height: 22px;
+	vertical-align: middle;
+}
+
+#title {
+	overflow: hidden;
+	height: 15px;
+	color: #006699;
+	font-weight: bold;
+	top: 4px;
+	left: 3px;
+	position: relative;
+	float: left;
+	width: 90%;
+}
+
+#panelcontroller {
+	height: 15px;
+	top: 4px;
+	right: 6px;
+	position: relative;
+	float: right;
+	cursor: pointer;
+}
+#panelcontroller1 {
+	height: 15px;
+	top: 4px;
+	right: 6px;
+	position: relative;
+	float: right;
+	cursor: pointer;
+}
+#panelcontroller2 {
+	height: 15px;
+	top: 4px;
+	right: 6px;
+	position: relative;
+	float: right;
+	cursor: pointer;
+}
+
+#content {
+	padding: 4px 3px 4px 3px;
+	overflow: auto;
+}
+/*
+#console {
+	background: #FFFFFF;
+	position: fixed; 
+	height: auto;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+}*/
+/*
+#dropdownmenu {
+	position: fixed; 
+	top: 62px;
+	left: auto;
+	bottom: auto;
+	right: 190px;
+	width: 280px;
+	height: 70px;
+	border: 1px solid #B4B4B4;
+	background: #FFFFFF;
+	z-index: 101;
+	display: none;
+}
+*/
+#paneltitle {
+	font-weight: bold;
+	color: #006699;
+}
+
+a.menu:link {
+	text-decoration: none;
+	color: #666666;
+}
+a.menu:visited {
+	text-decoration: none;
+	color: #666666;
+}
+a.menu:hover {
+	text-decoration: none;
+	color: #666666;
+}
+a.menu:active {
+	text-decoration: none;
+	color: #666666;
+}
+
+/* Agregadas el 11 Agosto 2007 */
+
+#maininfo {
+	background: #FFFFFF;
+	position: fixed; /* */
+	height: auto;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	z-index: 99;
+}
+
+.quit a, .quit a:visited, .quit a:hover, .quit a:active, .quit a:link{
+	color: #FFFFFF;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	font-weight: bold;
+}
+
+/* viene de login.css */
+
+td.panel {
+	width: 338px;
+	height: 181px;
+	border: 1px solid #EEEEEE;
+	background-color: #F9F9F9;
+	padding: 1px 1px 1px 1px;
+}
+
+td.topBar {
+	font-weight: bold;
+	color: #305082;
+	background: #F9F9F9 repeat-x url(../images/topBar.jpg);
+	height: 22px;
+	padding-top: 7px;
+	padding-left: 5px;
+}
+
+td.celdas {
+	/*background: #FFFFFF;
+	border: 1px solid #EEEEEE;
+	*/border-right: 0;
+	height: 30px;
+	vertical-align: middle;
+	padding-left: 3px;
+}
+
+td.logoPanel {
+	text-align: right;
+	padding-top: 4px;
+	padding-right: 9px;
+	
+}
+
+input.field {
+	height: 17px;
+	border: 1px solid #CCCCCC;
+	background: #FFFFFF repeat-x url(../images/inputField.jpg);
+	vertical-align: middle;
+}
+
+td.panelRight {
+	background: no-repeat url(../images/panelR.png);
+	width: 7px;
+}
+
+td.panelBottom {
+	background: no-repeat url(../images/panelB.png);
+	height: 9px;
+}
+
+td.panelBtns {
+	text-align: right;
+	padding-right: 8px;
+}
+
+#centerPanel {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 345px;
+	height: 191px;
+	margin-left: -173px;
+	margin-top: -95px;
+}
+td.menu{
+	padding: 1px 1px 1px 1px;
+}
+
+#menu {
+ 
+	margin-right: 0px;
+	margin-bottom: 0px;
+   margin-left: 0px;
+	margin-top: 0px;
+	
+}
+
+body {
+	/*background: repeat-x url(../images/background.jpg);
+*/
+
+background-color: #F9F9F9;
+}
+
+
+/* viene d login */
+/*
+
+td.panel {
+	width: 338px;
+	height: 181px;
+	border: 1px solid #EEEEEE;
+	background-color: #F9F9F9;
+	padding: 1px 1px 1px 1px;
+}
+
+td.topBar {
+	font-weight: bold;
+	color: #305082;
+	background: #F9F9F9 repeat-x url(../images/topBar.jpg);
+	height: 22px;
+	padding-top: 7px;
+	padding-left: 5px;
+}
+
+td.logoPanel {
+	text-align: right;
+	padding-top: 4px;
+	padding-right: 9px;
+	
+}
+
+input.field {
+	height: 17px;
+	border: 1px solid #CCCCCC;
+	background: #FFFFFF repeat-x url(../images/inputField.jpg);
+	vertical-align: middle;
+}
+
+td.panelRight {
+	background: no-repeat url(../images/panelR.png);
+	width: 7px;
+}
+
+td.panelBottom {
+	background: no-repeat url(../images/panelB.png);
+	height: 9px;
+}
+
+td.panelBtns {
+	text-align: right;
+	padding-right: 8px;
+}
+
+#centerPanel {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 345px;
+	height: 191px;
+	margin-left: -173px;
+	margin-top: -95px;
+}
+td.menu{
+	padding: 1px 1px 1px 1px;
+}
+
+#menu {
+ 
+	margin-right: 0px;
+	margin-bottom: 0px;
+   margin-left: 0px;
+	margin-top: 0px;
+	
+}
+
+*/

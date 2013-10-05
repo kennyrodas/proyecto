@@ -1,0 +1,375 @@
+/* 
+ * funcitoncommunications - http://www.funciton.com 
+ */
+
+body, td, input, div, select, option {
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 11px;
+	color: #666666;
+	}
+
+html, body {
+	height: auto;
+	width: 100%;
+	overflow-y: hidden;
+	overflow-x: hidden;
+}
+
+td, div {
+	text-align: left;
+	vertical-align: middle;
+}
+
+img {
+	border: 0;
+}
+
+a:link {
+	text-decoration: none;
+	color: #006699;
+}
+a:visited {
+	text-decoration: none;
+	color: #006699;
+}
+a:hover {
+	text-decoration: none;
+	color: #006699;
+}
+a:active {
+	text-decoration: none;
+	color: #006699;
+}
+.add4{
+background: url("../images/indicadores.jpg") no-repeat scroll 0% 0% transparent;
+width: 110px;
+}
+
+
+
+
+
+
+
+
+input.btn {
+	width: 65px;
+	height: 22px;
+	border: none;
+}
+
+input.accept {
+	background: no-repeat url(../images/aceptarBtn.jpg);
+	
+}
+
+input.cancel {
+	background: no-repeat url(../images/cancelarBtn.jpg) #8B8B8B;
+	color: #FFFFFF;
+}
+
+input.guardar {
+	background: no-repeat url(../images/guardarBtn.jpg) #9B0103;
+	
+}
+input.boton{
+	background-color: orange;
+	color: white;
+}
+
+input.indicadores , .add1 ,.add2 ,.add3, .del1 ,.del2,.del3{
+background-color: orange;
+color: white;
+}
+
+
+input.buscamedico {
+	background: no-repeat url(../images/BuscarMedicoBtn.jpg);
+	width: 95px;
+}
+
+
+input.buscasesor {
+	background: no-repeat url(../images/BuscarAsesorBtn.jpg);
+	width: 95px;
+}
+
+
+input.verheridos {
+	background: no-repeat url(../images/VerHeridosBtn.jpg);
+	width: 95px;
+}
+
+input.buscausuarios {
+	background: no-repeat url(../images/btnNuevoUsuario.jpg);
+	width: 110px;
+}
+
+
+input.buscabitacora {
+	background: no-repeat url(../images/BuscarBitacoraBtn.jpg);
+	width: 110px;
+}
+
+input.buscaindicadores {
+	background: no-repeat url(../images/indicadores.jpg);
+	width: 110px;
+}
+
+input.buscaresultado {
+	background: no-repeat url(../images/resultados.jpg);
+	width: 110px;
+}
+
+
+
+input.nuevo_boton {
+	background: no-repeat url(../images/btnNuevo.jpg);
+	width: 55px;
+}
+
+input.agregaheridos {
+	background: no-repeat url(../images/heridosbtn.jpg);
+	width: 110px;
+}
+
+input.culminar {
+            background: no-repeat url(../images/culminarBtn.jpg);
+           width: 72px;
+}
+
+input.taller {
+            background: no-repeat url(../images/BuscaTallerBtn.jpg);
+            width: 87px;
+}
+
+input.llamadas {
+            background: no-repeat url(../images/sigueLlamadasBtn.jpg);
+            width: 146px;
+}
+
+input.analisis {
+            background: no-repeat url(../images/analisis_tecnicoBtn.jpg);
+            width: 104px;
+}
+
+input.reasignar {
+            background: no-repeat url(../images/reasignarBtn.jpg);
+            width: 90px;
+}
+
+input.bitacora {
+	background: no-repeat url(../images/bitacorabtn.jpg);
+	width: 61px;
+}
+
+input.auditorias {
+	background: no-repeat url(../images/auditoriasbtn.jpg);
+	width: 73px;
+}
+
+#overlay {
+	position: absolute;
+	height: auto;
+	top: 0;
+	left: 0;
+	right: auto;
+	bottom: 0;
+	z-index: 100;
+	width: 100%;
+	/*background-color: #000000;
+	filter: alpha(opacity=60);*/
+	-moz-opacity: 0.6;
+	opacity: 0.6;
+	display: none;
+}
+
+
+#overlay_login {
+	position: absolute;
+	height: auto;
+	top: 0;
+	left: 0;
+	right: auto;
+	bottom: 0;
+	z-index: 100;
+	width: 100%;
+	background-color: #000000;
+	/*filter: alpha(opacity=60);*/
+	-moz-opacity: 0.6;
+	opacity: 0.6;
+	display: none;
+}
+
+
+#overlaysearchpanel {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 101;
+	display: none;
+	width: 642px;
+	height: 344px;
+	margin-left: -321px;
+	margin-top: -172px;
+}
+
+#overlaypanel {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 101;
+	display: none;
+	width: 742px;
+	height: 344px;
+	margin-left: -371px;
+	margin-top: -172px;
+}
+
+#overlayalert {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 102;
+	display: none;
+	width: 338px;
+	height: 181px;
+	margin-left: -176px;
+	margin-top: -95px;
+}
+
+#overlayalert1 {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 102;
+	display: none;
+	/*margin-left: -176px;*/
+	margin-top: -95px;
+}
+#overlayalert2 {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 102;
+	display: none;
+	/*margin-left: -176px;*/
+	margin-top: -95px;
+}
+
+
+#alertmessage {
+	padding-top: 22px;
+	padding: 22px 7px 22px 7px;
+	height: 45px;
+	font-weight: bold;
+	text-align: center;
+}
+
+#preloader {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 161px;
+	height: 51px;
+	z-index: 103;
+	margin-left: -81px;
+	margin-top: -26px;
+	display: none;
+}
+#sub_titulo{
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 11px;
+	text-align: center;
+	font-weight: bold;
+	color: #305082;
+	background: repeat-x url(../images/sub_top.jpg);	
+}
+
+#titulo{
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 11px;
+	text-align: center;
+	font-weight: bold;
+	color: #305082;
+}
+
+.titulos_chicos {
+	font-size: 11px;
+	font-weight: bold;
+}
+-->
+
+td.barra{
+
+            background: repeat-x url(../images/barra.jpg);         
+
+}
+
+td.dgrow {
+
+            background: #FFFFFF;
+
+            border: 1px solid #EEEEEE;
+
+            border-left: 0;
+
+            border-right: 0;
+
+            vertical-align: middle;
+
+            padding-left: 3px;
+
+}
+
+ 
+
+ 
+
+div.dgitem {
+
+            position: relative;
+
+            overflow: hidden;
+
+            padding-top: 2px;
+
+            width: 100%;
+
+            height: 15px;
+
+}
+
+ 
+
+td.dgtitle {
+
+            font-weight: bold;
+
+            padding-left: 2px;
+
+}
+
+input.editar{
+
+            background: no-repeat url(../images/editarbtn.jpg);
+
+            width: 73px;
+
+}
+
+td.sub_titulo{
+
+            font-family: Tahoma, Verdana, Arial;
+
+            font-size: 11px;
+
+            text-align: left;
+
+            font-weight: bold;
+
+            color: #305082;
+
+            background: repeat-x url(../images/sub_top.jpg);     
+
+}

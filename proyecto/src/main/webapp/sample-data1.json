@@ -1,0 +1,16 @@
+[
+    {"title": "Actividad 2.1"},
+    {"title": "Actividad 2.2", "isFolder": true, "key": "folder2",
+        "children": [
+            {"title": "Sub-item 2.1 <a href='#'>metas</a>  <a href='#'>Indicadores</a>"},
+			{"title": "Sub-item 2.2 <a href='#'>metas</a>  <a href='#'>Indicadores</a>"}
+			]
+        },
+	{"title": "Actividad 2.3", "isFolder": true, "key": "folder3",
+	    "children": [
+		    {"title": "Sub-item 3.1  <a href='#'>metas</a>  <a href='#'>Indicadores</a>" },
+		    {"title": "Sub-item 3.2  <a href='#'>metas</a>  <a href='#'>Indicadores</a>"}
+		    ]
+		},
+	{"title": "Item 5 <a href='#'>metas</a>   <a href='#'>Indicadores</a>"}
+]

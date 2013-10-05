@@ -1,0 +1,59 @@
+#tabs {
+	margin-top: 60px;
+}
+
+#tabs ul {
+	margin: 0;
+	padding: 15px 0px 0px 0px;
+	list-style: none;
+}
+
+#tabs li {
+	display: inline;
+	margin: 0;
+	padding: 0;
+}
+
+#tabs a {
+	float: left;
+	background: url("../images/tableft.gif") no-repeat left top;
+	margin: 0;
+	padding: 0 0 0 4px;
+	text-decoration: none;
+}
+
+#tabs a span {
+	float: left;
+	display: block;
+	background: url("../images/tabright.gif") no-repeat right top;
+	padding: 5px 15px 4px 6px;
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 10px;
+	color: #305082;
+}
+
+#tabs a span {
+	float: left;
+}
+/* End IE5-Mac hack */
+#tabs a:hover span {
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 10px;
+	color: #305082;
+}
+
+#tabs a:hover {
+	background: url("../images/tableftr.gif") no-repeat left top;
+}
+
+#tabs a:hover span {
+	background: url("../images/tabrightr.gif") no-repeat left top;
+}
+
+#tabs #current a {
+	background: url("../images/tableftr.gif") no-repeat left top;
+}
+
+#tabs #current a span {
+	background: url("../images/tabrightr.gif") no-repeat left top;
+}
