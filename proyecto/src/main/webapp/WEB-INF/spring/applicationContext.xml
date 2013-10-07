@@ -75,12 +75,13 @@
 		<property name="suffix" value=".jsp"></property>
 	</bean>
 
-
+	
 	<!-- Mail sender configured for using Gmail p:host="smtp.gmail.com" p:port="587" 
 		p:port="465" p:username="kennyrodas" p:password="*********" -->
+	<!-- 
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl"
 		p:host="mail.gidmide.com" p:port="8025" p:username="buxrlfcc"
-		p:password="v6Dl1J0mw4">
+		p:password="*************">
 		<property name="javaMailProperties">
 			<props>
 				<prop key="mail.transport.protocol">smtp</prop>
@@ -89,11 +90,40 @@
 				<prop key="mail.debug">true</prop>
 			</props>
 		</property>
-	</bean>
+	</bean> -->
 	<!-- Se puede tener algunos mensajes preconfigurados que estemos dispuestos 
 		a enviar -->
+	<!-- 
 	<bean id="templateMessage" class="org.springframework.mail.SimpleMailMessage"
 		p:from="dwinterfeldt@springbyexample.org" p:to="kennyrodas@gmail.com"
 		p:subject="Greetings from Spring by Example" />
-
+	-->
+	
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+    <!-- SMTP settings -->
+    <property name="host" value="mail.gidmide.com" />
+    <property name="port" value="8025" />
+    <property name="username" value="buxrlfcc" />
+    <property name="password" value="************" />
+ 
+    <property name="javaMailProperties">
+        <!-- additional properties specific to JavaMail -->
+        <props>
+            <prop key="mail.transport.protocol">smtp</prop>
+            <prop key="mail.smtp.auth">true</prop>
+            <prop key="mail.smtp.starttls.enable">true</prop>
+        </props>
+    </property>
+	</bean>
+	
+	<bean id="templateMessage" class="org.springframework.mail.SimpleMailMessage">
+		<property name="to" value="kennyrodas@gmail.com"></property>
+        <property name="from" value="buxrlfcc@gidmide.com"></property>
+        <property name="subject" value="EXITO - Registro en GID. Buen trabajooo!!"/>
+    </bean>
+    
+    <bean id="usuarioManager" class="com.kenny.app.service.SimpleUsuarioManager">
+    	<property name="mailSender" ref="mailSender"/>
+    	<property name="templateMessage" ref="templateMessage"/>
+    </bean>
 </beans>
