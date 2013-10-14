@@ -18,6 +18,8 @@ public interface UsuarioManager extends Serializable {
     
     public Usuario getUsuarioByDocnum(Usuario usuario);
     
-    public void sendEmailConfirmation(Usuario usuario);
+    public void sendEmailConfirmation(Usuario usuario, String dominio);
+    
+    public Boolean validEmailConfirmation(Usuario usuario, String idencriptado);
 
 }

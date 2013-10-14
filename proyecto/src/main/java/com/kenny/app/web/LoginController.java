@@ -33,6 +33,7 @@ public class LoginController {
     private UsuarioManager usuarioManager;
 	@Autowired
 	private ProyectoManager proyectoManager;
+	
 	@RequestMapping(value="/inicio.htm", method = RequestMethod.POST)
 	public ModelAndView autenticar(HttpServletRequest request, HttpServletResponse response)
 	{
@@ -86,8 +87,18 @@ public class LoginController {
 		Usuario usuario = new Usuario();
 		usuario.setUsuario("kenny");
 		usuario = usuarioManager.getUsuarioByUsername(usuario);
+
+		// Datos del dominio
+		String pageURL = "";
+		String SERVER_NAME = request.getServerName();
+		String PORT = String.valueOf(request.getServerPort());
+		if (PORT != "80") {
+			pageURL = SERVER_NAME + ":" + PORT;
+		} else {
+			pageURL = SERVER_NAME;
+		}
 		
-		usuarioManager.sendEmailConfirmation(usuario);
+		usuarioManager.sendEmailConfirmation(usuario, pageURL);
 	}
 	
 	@RequestMapping(value="/proy/{user}", method = RequestMethod.GET)

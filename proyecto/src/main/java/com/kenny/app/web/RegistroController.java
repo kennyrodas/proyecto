@@ -12,6 +12,8 @@ import javax.servlet.http.HttpSession;
 import org.json.simple.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -107,20 +109,49 @@ public class RegistroController {
 		usuario.setCorreo(request.getParameter("correo"));
 		usuario.setTrabdir(request.getParameter("trabdir"));
 		usuario.setTrabcargo(request.getParameter("trabcargo"));
-		//usuario.setPadreId(1);
 		// usuario.setRegister_user(request.getParameter("register_user"));
 		// usuario.setRegister_date(request.getParameter("register_date"));
 		// usuario.setModified_user(request.getParameter("modified_user"));
 		// usuario.setModified_date(request.getParameter("modified_date"));
 
 		usuarioManager.registraUsuario(usuario);
-
+		
+		// Datos del dominio
+		String pageURL = "";
+		String SERVER_NAME = request.getServerName();
+		String PORT = String.valueOf(request.getServerPort());
+		if (PORT != "80") {
+			pageURL = SERVER_NAME + ":" + PORT;
+		} else {
+			pageURL = SERVER_NAME;
+		}
+		
+		usuarioManager.sendEmailConfirmation(usuario, pageURL);
+		
 		//return "regusuario";
 		Map<String, Object> myModel = new HashMap<String, Object>();
 		myModel.put("usuario", usuario);
 		return new ModelAndView("registrarse", "model", myModel);
 	}
-
+	
+	@RequestMapping(value="/activarcuenta/{username}/{idencriptado}", method = RequestMethod.GET)
+    public ModelAndView emailValidationUser(@PathVariable String username, @PathVariable String idencriptado)
+	{
+		Usuario usuario = new Usuario();
+		usuario.setUsuario(username);
+		usuario = usuarioManager.getUsuarioByUsername(usuario);
+		
+		if (usuario != null) {
+			if (usuarioManager.validEmailConfirmation(usuario, idencriptado)){
+				return new ModelAndView("login","info", "Su cuenta ha sido activada. Ya puede ingresar al sistema con sus datos de acceso.");
+			}
+			
+		} 
+			
+		return new ModelAndView("login","error", "Verifique sus datos de acceso.");
+		
+	}
+	
 	// ajaxValidateUsername
 	@RequestMapping(value = "/ajaxValidateUsername.htm", method = RequestMethod.GET)
 	public @ResponseBody
@@ -189,5 +220,15 @@ public class RegistroController {
 			e.printStackTrace();
 		}
 	}
+	
+//	public static void main(String[] args){
+		
+//		System.out.println("jadasdasd");
+//		Usuario usuario = new Usuario();
+//		usuario.setUsuario("kenny");
+//		usuario = usuarioManager.getUsuarioByUsername(usuario);
+//		
+//		usuarioManager.sendEmailConfirmation(usuario);
+//	}
 
 }

@@ -1,14 +1,30 @@
 package com.kenny.app.service;
 
+import java.security.MessageDigest;
 import java.util.List;
 //import com.kenny.app.mail.*;
 
+
+
+
+
+
+
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import org.springframework.mail.MailException;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
+
+
+
+
+
+
+
+
 
 /*
 import javax.mail.Message;
@@ -27,7 +43,6 @@ import com.kenny.app.repository.UsuarioDao;
 public class SimpleUsuarioManager implements UsuarioManager {
 
     private static final long serialVersionUID = 1L;
-    //private JavaMailSender mailSender;
     
     @Autowired
     private MailSender mailSender;
@@ -73,54 +88,67 @@ public class SimpleUsuarioManager implements UsuarioManager {
 		return usuarioDao.getUsuarioListByUsuario(usuario_id);
 	}
 	
-	public void sendEmailConfirmation(final Usuario usuario) {
+	public void sendEmailConfirmation(final Usuario usuario, String dominio) {
+		
+		String id = String.valueOf(usuario.getId());
+		SimpleMailMessage msg = new SimpleMailMessage(this.templateMessage);
+		String mensaje = "";
+		String idencriptado = "";
+		try {
+			idencriptado = md5(id);
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+		}
+		
+		mensaje = "Estimado "+ usuario.getNombre() + ", \n"
+			    + "gracias por registrarte en GID."
+			    + "Para poder activar su cuenta ingrese al siguiente enlace:"
+			    + "http://" + dominio + "/proyecto/activarcuenta/" + usuario.getUsuario() + "/" + idencriptado;
 		
 		// Create a thread safe "copy" of the template message and customize it
-		SimpleMailMessage msg = new SimpleMailMessage(this.templateMessage);
-        msg.setTo("alancitus@gmail.com");
-        msg.setText(
-            "Dear Alancitus"
-                + ", Gracias por registrarte en GID. Tu codigo es 53442");
-        try{
-            this.mailSender.send(msg);
+		msg.setTo(usuario.getCorreo());
+		msg.setText( mensaje );
+		
+		
+		try{
+			System.out.println(mensaje);
+            //this.mailSender.send(msg);
         }
         catch(MailException ex) {
         	System.err.println("NO ENVIO EL MAIL!!!!!!!!!!!!!!!!!!!!!");
-            // simply log it and go on...
             System.err.println(ex.getMessage());
         }
         
-        /*
-		//Get the mailer instance
-        ApplicationMailer mailer = new ApplicationMailer();
- 
-        //Send a composed mail
-        mailer.sendMail("kennyrodas@gmail.com", "Test Subject", "Testing body");
-        */
-        
-        //Send a pre-configured mail
-        //mailer.sendPreConfiguredMail("Exception occurred everywhere.. where are you ????");
-        
-		/*
-		MimeMessagePreparator preparator = new MimeMessagePreparator() {
-
-            public void prepare(MimeMessage mimeMessage) throws Exception {
-
-                mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(usuario.getCorreo()));
-                mimeMessage.setFrom(new InternetAddress("krodas@usil.edu.pe"));
-                mimeMessage.setText(
-                    "Dear " + usuario.getNombre() + " "
-                        + usuario.getApellido()
-                        + ", thank you for placing order. Your order number is "
-                        + usuario.getUsuario());
-            }
-        };
-        try {
-            this.mailSender.send(preparator);
-        } catch (MailException ex) {
-            // simply log it and go on...
-            System.err.println(ex.getMessage());
-        }
-        */
 	}
+	
+	public Boolean validEmailConfirmation(Usuario usuario, String idencriptado) {
+		
+		String id = String.valueOf(usuario.getId());
+		String idencriptadobd = "";
+		try {
+			idencriptadobd = md5(id);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return idencriptado.equals(idencriptadobd);
+	}
+	
+	private static String md5(String clear) throws Exception {
+		MessageDigest md = MessageDigest.getInstance("MD5");
+		byte[] b = md.digest(clear.getBytes());
+
+		int size = b.length;
+		StringBuffer h = new StringBuffer(size);
+		for (int i = 0; i < size; i++) {
+			int u = b[i] & 255;
+			if (u < 16) {
+				h.append("0" + Integer.toHexString(u));
+			} else {
+				h.append(Integer.toHexString(u));
+			}
+		}
+		return h.toString();
+	}
+	
 }
