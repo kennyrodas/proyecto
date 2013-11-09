@@ -97,6 +97,10 @@
 									</select>
 								</div>
 							</div>
+							
+							<div id="divdocumento" class="control-group">
+							</div>
+							<!--
 							<div class="control-group">
 								<label class="control-label">Documento de Indentidad</label>
 								<div class="controls">
@@ -111,6 +115,14 @@
 									</select> <input id="docnum" name="docnum" type="text" class=""
 										maxlength="45" />
 
+								</div>
+							</div>
+							-->
+							<div class="control-group">
+								<label class="control-label">Correo</label>
+								<div class="controls">
+									<input id="correo" name="correo" type="text"
+										class="validate[required, custom[email]] field text medium" maxlength="90" />
 								</div>
 							</div>
 							<div class="control-group">
@@ -205,35 +217,57 @@ $(document).ready(function() {
 	$("#pais").change(function() {
 		if ( $("#pais option:selected").text() == "PERU" ){
 			//#doctipo
-			$("#doctipo").val("1");
-			$("#doctipo option[value!='1']").each(function() { $(this).attr('disabled','disabled'); });
+			//$("#doctipo").val("1");
+			//$("#doctipo option[value!='1']").each(function() { $(this).attr('disabled','disabled'); });
+			
+			//$("#doctipo").empty();
+			//$("#doctipo").append('<option value="1" selected="selected">DNI</option>');
+			
+			$("#divdocumento").empty();
+			$("#divdocumento").append("<label class=\"control-label\">DNI</label><div class=\"controls\"><input id=\"doctipo\" name=\"doctipo\" type=\"hidden\" value=\"1\" /><input id=\"docnum\" name=\"docnum\" type=\"text\" class=\"\" maxlength=\"45\" /></div>");
+			
 			//#numdoc
 			utilValDocnum();
 		} else {
 			//#doctipo
-			$("#doctipo option").each(function() { $(this).removeAttr('disabled'); });
-			$("#doctipo option[value='1']").attr('disabled','disabled');
-			$("#doctipo").val("2");
+			//$("#doctipo option").each(function() { $(this).removeAttr('disabled'); });
+			//$("#doctipo option[value='1']").attr('disabled','disabled');
+			//$("#doctipo").val("2");
+			
+			//$("#doctipo").empty();
+			//$("#doctipo").append('<option value="2" selected="selected">CARNET EXT</option>');
+			
+			$("#divdocumento").empty();
+			$("#divdocumento").append("<label class=\"control-label\">Documento</label><div class=\"controls\"><input id=\"doctipo\" name=\"doctipo\" type=\"hidden\" value=\"2\" /><input id=\"docnum\" name=\"docnum\" type=\"text\" class=\"\" maxlength=\"45\" /></div>");
+			
 			//#numdoc
 			utilValDocnum();
 		}
 	});
 	
-	// Si es DNI size=8 || carnet ext=21
-	$("#doctipo").change(function() {
-		utilValDocnum();
-	});
+	//$("#doctipo").change(function() {
+	//	utilValDocnum();
+	//});
 	
 });
 
 function utilValDocnum(){
-	$("#docnum").removeAttr('disabled');
+	//$("#docnum").removeAttr('disabled');
 	
-	<c:forEach items="${model.doctipos}" var="doctipo">
-	if ( $("#doctipo option:selected").text() == "<c:out value="${doctipo.nombre}"/>" ){
-		$("#docnum").removeClass().addClass("validate[required, custom[onlyNumberSp], minSize[${doctipo.numeroDigitos}], maxSize[${doctipo.numeroDigitos}]]");
-	}
-    </c:forEach>
+	//<c:forEach items="${model.doctipos}" var="doctipo">
+	//if ( $("#doctipo option:selected").text() == "<c:out value="${doctipo.nombre}"/>" ){
+	//	$("#docnum").removeClass().addClass("validate[required, custom[onlyNumberSp], minSize[${doctipo.numeroDigitos}], maxSize[${doctipo.numeroDigitos}]]");
+	//}
+    //</c:forEach>
+    
+    $("#docnum").val('');
+    
+    if ( $("#doctipo").val() == "1" ){
+    	$("#docnum").removeClass().addClass("validate[required, custom[onlyNumberSp], minSize[11], maxSize[11]");
+    }
+    if ( $("#doctipo").val() == "2" ){
+    	$("#docnum").removeClass().addClass("validate[required, custom[onlyNumberSp], minSize[15], maxSize[20]");
+    }
 }
 </script>
 </body>
